@@ -29,10 +29,19 @@ public class Player {
 	private String countryName;
 	@Size(min=10,max=100)
 	private String description;
+<<<<<<< HEAD
 
 	public Player()
 	{
 	    super();
 	}
+=======
+	
+	public Player() {
+		super();
+	}
+	
+	
+>>>>>>> 17ab7aa (Filter by Total matches added)
 
 }
