@@ -29,6 +29,10 @@ public class Player {
 	private String countryName;
 	@Size(min=10,max=100)
 	private String description;
-	
+
+	public Player()
+	{
+	    super();
+	}
 
 }
