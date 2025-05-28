@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.hexaware.ctms.dto.PlayerDTO;
 import com.hexaware.ctms.entity.Player;
-import com.hexaware.ctms.exception.EmptyTableException;
 import com.hexaware.ctms.exception.PlayerNotFoundException;
 import com.hexaware.ctms.repository.IPlayerRepository;
 
@@ -19,12 +18,12 @@ public class IPlayerServiceImp implements IPlayerService {
 	IPlayerRepository playerRepo;
 	
 	@Override
-	public List<PlayerDTO> getAllplayers() throws EmptyTableException {
+	public List<PlayerDTO> getAllplayers() throws PlayerNotFoundException {
 		
 		List<Player> players = playerRepo.findAll();
 		if(players.isEmpty())
 		{
-			throw new EmptyTableException();
+			throw new PlayerNotFoundException();
 		}
 		
 		return entity2dtoList(players);
@@ -58,6 +57,13 @@ public class IPlayerServiceImp implements IPlayerService {
 		playerRepo.findById(playerId).orElseThrow(()->new PlayerNotFoundException());
 		playerRepo.deleteById(playerId);
 		return playerId+" deleted Successfully";
+	}
+	
+	@Override
+	public List<PlayerDTO> filterByTotalMatch() {
+		
+		List<Player> players = playerRepo.filterByTotalMatch();
+		return entity2dtoList(players);
 	}
 	
 	public static PlayerDTO entity2dto(Player player)
@@ -96,4 +102,6 @@ public class IPlayerServiceImp implements IPlayerService {
 		
 		return playerDtoList;
 	}
+
+	
 }

@@ -14,10 +14,11 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<String>("The requested player is not found",HttpStatus.NOT_FOUND);
 	}
 	
-	@ExceptionHandler(EmptyTableException.class)
-	public ResponseEntity<String> EmptyTableExceptionHandler()
+	
+	@ExceptionHandler(Exception.class)
+	public ResponseEntity<String> ExceptionHandler()
 	{
-		return new ResponseEntity<String>("There is not data currently please add some data and continue",HttpStatus.NO_CONTENT);
+		return new ResponseEntity<String>("Data not valid, enter correct data",HttpStatus.NOT_ACCEPTABLE);
 	}
 
 }

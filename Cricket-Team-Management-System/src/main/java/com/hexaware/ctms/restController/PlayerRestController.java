@@ -1,7 +1,5 @@
 package com.hexaware.ctms.restController;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hexaware.ctms.dto.PlayerDTO;
 import com.hexaware.ctms.entity.Player;
-import com.hexaware.ctms.exception.EmptyTableException;
 import com.hexaware.ctms.exception.PlayerNotFoundException;
 import com.hexaware.ctms.service.IPlayerService;
 
@@ -24,7 +21,7 @@ public class PlayerRestController {
 	IPlayerService service;
 	
 	@GetMapping("/players")
-	public String getAllPlayers() throws EmptyTableException
+	public String getAllPlayers() throws PlayerNotFoundException
 	{
 		System.out.println(service.getAllplayers().toString());
 		return service.getAllplayers().toString();
@@ -53,6 +50,12 @@ public class PlayerRestController {
 	public String deletePlayerById(@PathVariable Long playerId) throws PlayerNotFoundException
 	{
 		return service.deletePlayerById(playerId);
+	}
+	
+	@GetMapping("/players/filter-by-match")
+	public String getAllPlayersByTotalMatch()
+	{
+		return service.filterByTotalMatch().toString();
 	}
 
 }

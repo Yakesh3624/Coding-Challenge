@@ -23,11 +23,12 @@ public class Player {
 	private String role;
 	@PositiveOrZero
 	private Integer totalMatches;
-	@Size(min=4,max=20)
+	@Size(min=3,max=20)
 	private String teamName;
 	@NotNull
 	private String countryName;
 	@Size(min=10,max=100)
 	private String description;
+	
 
 }
