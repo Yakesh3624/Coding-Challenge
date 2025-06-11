@@ -1,0 +1,17 @@
+<table class="table">
+
+<div>
+<input type="number" name ="pid" [(ngModel)]="pid" placeholder="Enter Player ID"><button class="btn btn-secondary" (click)="filter(pid)">Search</button>
+</div>
+<tr><th>Player ID</th><th>Name</th><th>Jersey</th><th>Role</th></tr>
+<tr *ngFor="let player of data">
+  <td>{{player.playerId}}</td>
+  <td>{{player.playerName}}</td>
+  <td>{{player.jerseyNumber}}</td>
+  <td>{{player.role}}</td>
+  <td><button type="button" (click)="update(player)" class="btn btn-secondary">Update</button></td>
+  <td><button type="button" (click)="delete(player.playerId)" class="btn btn-danger">Delete</button></td>
+</tr>
+
+</table>
+

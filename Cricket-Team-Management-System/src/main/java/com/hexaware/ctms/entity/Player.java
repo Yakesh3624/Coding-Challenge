@@ -12,10 +12,10 @@ import lombok.Data;
 @Entity
 @Data
 public class Player {
-	
+
 	@Id
 	private Long playerId;
-	@Size(min=3,max=26)
+	@Size(min = 3, max = 26)
 	private String playerName;
 	@Positive
 	private Integer jerseyNumber;
@@ -23,25 +23,15 @@ public class Player {
 	private String role;
 	@PositiveOrZero
 	private Integer totalMatches;
-	@Size(min=3,max=20)
+	@Size(min = 3, max = 20)
 	private String teamName;
 	@NotNull
 	private String countryName;
-	@Size(min=10,max=100)
+	@Size(min = 10, max = 100)
 	private String description;
-<<<<<<< HEAD
 
-	public Player()
-	{
-	    super();
-	}
-=======
-	
 	public Player() {
 		super();
 	}
-	
-	
->>>>>>> 17ab7aa (Filter by Total matches added)
 
 }

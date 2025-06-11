@@ -1,0 +1,50 @@
+<h1 style="text-align: center;">UPDATE PLAYER</h1>
+
+
+<form #myForm="ngForm" class="container col-md-8" (ngSubmit)="update(myForm.value)">
+  <div class="form-group">
+    <label>Player ID</label>
+    <input type="number" class="form-control" name="playerId" required ngModel #idControl="ngModel">
+    <span style="color:red" *ngIf="idControl.touched && idControl.invalid">Player ID is required</span>
+  </div>
+
+  <div class="form-group">
+    <label>Player Name</label> <input type="text" name="playerName" class="form-control" #nameControl="ngModel" required ngModel>
+    <span *ngIf="nameControl.touched && nameControl.invalid">Player Name  is required</span>
+  </div>
+
+  <div class="form-group">
+    <label>Jersey Number</label> <input type="number" name="jerseyNumber" class="form-control" #jerseyControl="ngModel" required ngModel>
+    <span *ngIf="jerseyControl.touched && jerseyControl.invalid"></span>
+  </div>
+
+  <div>
+    <label>Role</label> <input type="text" class="form-control" name="role" #roleControl="ngModel" required ngModel>
+    <span *ngIf="roleControl.touched && roleControl.invalid" class="form-control" #idControl="ngModel" required ngModel></span>
+  </div>
+
+  <div>
+    <label>Total Matches</label> <input type="number" name="totalMatches" class="form-control" #matchControl="ngModel" required ngModel>
+    <span *ngIf="matchControl.touched && matchControl.invalid"></span>
+  </div>
+
+  <div>
+    <label>Team Name</label> <input type="text" name="teamName" class="form-control" #teamControl="ngModel" required ngModel>
+    <span *ngIf="teamControl.touched && teamControl.invalid"></span>
+  </div>
+
+  <div>
+    <label>Country Name</label> <input type="text" name="countryName" class="form-control" #countryControl="ngModel" required ngModel>
+    <span *ngIf="countryControl.touched && countryControl.invalid"></span>
+  </div>
+
+  <div>
+    <label>Description</label> <input type="text" name="description" class="form-control" #descControl="ngModel" required ngModel>
+    <span *ngIf="descControl.touched && descControl.invalid"></span>
+  </div>
+
+  <div>
+    <button type="submit" class="btn btn-primary btn-lg" [disabled]="myForm.invalid">Submit</button>
+    <button type="reset" class="btn btn-secondary btn-lg">Reset</button>
+  </div>
+</form>
